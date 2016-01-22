@@ -1,10 +1,10 @@
 define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-extras-statevis'],
     function (angular) {
-        var app = angular.module("app",
-            ['ct.ui.router.extras.future', 'ct.ui.router.extras.statevis']);
 
-        app.config(['$futureStateProvider', '$controllerProvider',
-            function ($futureStateProvider, $controllerProvider) {
+        var app = angular.module("app", ['ct.ui.router.extras.future', 'ct.ui.router.extras.statevis']);
+
+        app.config(['$futureStateProvider',
+            function ($futureStateProvider) {
                 // Register a resolve function that loads and registers the states defined in states.json file
                 var loadAndRegisterFutureStates = function ($http) {
                     return $http.get('states.json').then(function (resp) {
@@ -34,6 +34,7 @@ define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-ex
             }]);
 
         angular.bootstrap(document, ['app']);
+
         return app;
 
     });
