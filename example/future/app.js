@@ -1,50 +1,39 @@
-// Require angularAMD, ui-router, and ui-router-extras
-define(['angularAMD', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-extras-statevis'],
-    function (angularAMD) { // Only need to inject angularAMD for app config
-        var app = angular.module("futureStates",
+define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-extras-statevis'],
+    function (angular) {
+        var app = angular.module("app",
             ['ct.ui.router.extras.future', 'ct.ui.router.extras.statevis']);
 
         app.config(['$futureStateProvider', '$controllerProvider',
             function ($futureStateProvider, $controllerProvider) {
-                // Loading states from .json file during runtime
+                // Register a resolve function that loads and registers the states defined in states.json file
                 var loadAndRegisterFutureStates = function ($http) {
-                    // $http.get().then() returns a promise
-                    return $http.get('futureStates.json').then(function (resp) {
+                    return $http.get('states.json').then(function (resp) {
                         angular.forEach(resp.data, function (fstate) {
-                            // Register each state returned from $http.get() with $futureStateProvider
                             $futureStateProvider.futureState(fstate);
                         });
                     });
                 };
-
-                $futureStateProvider.stateFactory('requireCtrl', requireCtrlStateFactory); // Register state factory that registers controller via eval.
-
                 $futureStateProvider.addResolve(loadAndRegisterFutureStates);
+
+                // Register a state factory that loads the final ui router state and requires the view module
+                var requireCtrlStateFactory = function ($q, futureState) {
+                    var d = $q.defer();
+                    console.log("futureState = ", futureState);
+                    require([futureState.src], function (lazyController) {
+                        var fullstate = {
+                            controller: lazyController,
+                            name: futureState.stateName,
+                            url: futureState.urlPrefix,
+                            templateUrl: futureState.templateUrl
+                        };
+                        d.resolve(fullstate);
+                    });
+                    return d.promise;
+                };
+                $futureStateProvider.stateFactory('requireCtrl', requireCtrlStateFactory);
             }]);
 
-
-        // Tell angularAMD to tell angular to bootstrap our app
-        angularAMD.bootstrap(app);
-        // return app for requireJS registration
+        angular.bootstrap(document, ['app']);
         return app;
-
-        function requireCtrlStateFactory($q, futureState) {
-            var d = $q.defer(); // make a deferred
-
-            console.log("futureState = ", futureState);
-
-            require([futureState.src], function (lazyController) {
-                var fullstate = {
-                    controller: lazyController,
-                    name: futureState.stateName,
-                    url: futureState.urlPrefix,
-                    templateUrl: futureState.templateUrl
-                };
-                d.resolve(fullstate);
-            });
-
-            // The state factory returns the promise
-            return d.promise;
-        }
 
     });
