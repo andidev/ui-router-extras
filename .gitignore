@@ -1,8 +1,7 @@
-.DS_Store
-bower_components
+logs/*
+!.gitkeep
 node_modules/
-build/
-ui-router-extras.iml
-ui-router-extras.ipr
-ui-router-extras.iws
-
+bower_components/
+tmp
+.DS_Store
+.idea

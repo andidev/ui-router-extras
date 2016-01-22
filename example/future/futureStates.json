@@ -1,33 +1,23 @@
 [
   {
-    "stateName": "iframe2",
-    "urlPrefix": "/iframe2",
-    "type": "iframe",
-    "src": "iframe2.html"
-  },
-  {
-    "stateName": "iframe1",
-    "urlPrefix": "/iframe1",
-    "type": "iframe",
-    "src": "iframe1.html"
-  },
-  {
-    "stateName": "module1",
-    "urlPrefix": "/module1",
-    "type": "ngload",
-    "src": "module1.js"
-  },
-  {
-    "stateName": "module2",
-    "urlPrefix": "/module2",
-    "type": "ngload",
-    "src": "module2.js"
-  },
-  {
-    "stateName": "lazyCtrl",
-    "urlPrefix": "/lazyCtrl",
-    "templateUrl": "lazyCtrl.html",
+    "stateName": "view1",
+    "urlPrefix": "/view1",
+    "templateUrl": "app/view1/view1.html",
     "type": "requireCtrl",
-    "src": "lazyController.js"
+    "src": "app/view1/view1.controller.js"
+  },
+  {
+    "stateName": "view2",
+    "urlPrefix": "/view2",
+    "templateUrl": "app/view2/view2.html",
+    "type": "requireCtrl",
+    "src": "app/view2/view2.controller.js"
+  },
+  {
+    "stateName": "view3",
+    "urlPrefix": "/view3",
+    "templateUrl": "app/view3/view3.html",
+    "type": "requireCtrl",
+    "src": "app/view3/view3.controller.js"
   }
 ]
