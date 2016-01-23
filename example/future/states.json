@@ -4,7 +4,8 @@
     "url": "/view1",
     "templateUrl": "app/view1/view1.html",
     "type": "requireCtrl",
-    "src": "app/view1/view1.controller.js"
+    "src": "app/view1/view1.controller.js",
+    "state": "app/view1/view1.state.js"
   },
   {
     "stateName": "view2",
