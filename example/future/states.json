@@ -1,23 +1,44 @@
 [
   {
     "stateName": "view1",
-    "urlPrefix": "/view1",
+    "url": "/view1",
     "templateUrl": "app/view1/view1.html",
     "type": "requireCtrl",
     "src": "app/view1/view1.controller.js"
   },
   {
     "stateName": "view2",
-    "urlPrefix": "/view2",
+    "url": "/view2",
     "templateUrl": "app/view2/view2.html",
     "type": "requireCtrl",
     "src": "app/view2/view2.controller.js"
   },
   {
     "stateName": "view3",
-    "urlPrefix": "/view3",
+    "url": "/view3",
     "templateUrl": "app/view3/view3.html",
     "type": "requireCtrl",
     "src": "app/view3/view3.controller.js"
+  },
+  {
+    "stateName": "parentview",
+    "url": "/parentview",
+    "templateUrl": "app/parentview/parentview.html",
+    "type": "requireCtrl",
+    "src": "app/parentview/parentview.controller.js"
+  },
+  {
+    "stateName": "parentview.childview1",
+    "url": "/parentview.childview1",
+    "templateUrl": "app/parentview/childview1/childview1.html",
+    "type": "requireCtrl",
+    "src": "app/parentview/childview1/childview1.controller.js"
+  },
+  {
+    "stateName": "parentview.childview2",
+    "url": "/parentview.childview2",
+    "templateUrl": "app/parentview/childview2/childview2.html",
+    "type": "requireCtrl",
+    "src": "app/parentview/childview2/childview2.controller.js"
   }
 ]

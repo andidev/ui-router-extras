@@ -23,7 +23,7 @@ define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-ex
                         var fullstate = {
                             controller: lazyController,
                             name: futureState.stateName,
-                            url: futureState.urlPrefix,
+                            url: futureState.url,
                             templateUrl: futureState.templateUrl
                         };
                         d.resolve(fullstate);
