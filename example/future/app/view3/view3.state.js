@@ -7,7 +7,7 @@ define(['app/view3/view3.controller'], function (view3Controller) {
         url: '/view3',
         controller: view3Controller,
         templateUrl: "app/view3/view3.html",
-        onEnter: function(){console.log("Entering");},
-        onExit: function(){console.log("Exiting");}
+        onEnter: function(){console.log("Entering view3 state");},
+        onExit: function(){console.log("Exiting view3 state");}
     };
 });

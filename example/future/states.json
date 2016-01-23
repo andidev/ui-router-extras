@@ -25,13 +25,13 @@
   },
   {
     "stateName": "parentview.childview1",
-    "url": "/parentview.childview1",
+    "url": "/childview1",
     "type": "requireCtrl",
     "src": "app/parentview/childview1/childview1.state.js"
   },
   {
     "stateName": "parentview.childview2",
-    "url": "/parentview.childview2",
+    "url": "/childview2",
     "type": "requireCtrl",
     "src": "app/parentview/childview2/childview2.state.js"
   }

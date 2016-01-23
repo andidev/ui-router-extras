@@ -7,7 +7,7 @@ define(['app/parentview/parentview.controller'], function (parentviewController)
         url: '/parentview',
         controller: parentviewController,
         templateUrl: "app/parentview/parentview.html",
-        onEnter: function(){console.log("Entering");},
-        onExit: function(){console.log("Exiting");}
+        onEnter: function(){console.log("Entering parentview state");},
+        onExit: function(){console.log("Exiting parentview state");}
     };
 });

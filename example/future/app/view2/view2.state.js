@@ -7,7 +7,7 @@ define(['app/view2/view2.controller'], function (view2Controller) {
         url: '/view2',
         controller: view2Controller,
         templateUrl: "app/view2/view2.html",
-        onEnter: function(){console.log("Entering");},
-        onExit: function(){console.log("Exiting");}
+        onEnter: function(){console.log("Entering view2 state");},
+        onExit: function(){console.log("Exiting view2 state");}
     };
 });

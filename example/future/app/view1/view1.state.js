@@ -7,7 +7,7 @@ define(['app/view1/view1.controller'], function (view1Controller) {
         url: '/view1',
         controller: view1Controller,
         templateUrl: "app/view1/view1.html",
-        onEnter: function(){console.log("Entering");},
-        onExit: function(){console.log("Exiting");}
+        onEnter: function(){console.log("Entering view1 state");},
+        onExit: function(){console.log("Exiting view1 state");}
     };
 });
