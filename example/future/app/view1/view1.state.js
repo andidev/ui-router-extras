@@ -1,7 +1,13 @@
 console.log("lazy loaded view1.state.js");
-define(['angular', 'app/view1/view1.module', 'app/view1/view1.controller'], function () {
+define(['app/view1/view1.controller'], function (view1Controller) {
     "use strict";
+    console.log("view1Controller = ", view1Controller);
     return {
-        templateUrl: "app/view1/view1.html"
+        name: 'view1',
+        url: '/view1',
+        controller: view1Controller,
+        templateUrl: "app/view1/view1.html",
+        onEnter: function(){console.log("Entering");},
+        onExit: function(){console.log("Exiting");}
     };
 });

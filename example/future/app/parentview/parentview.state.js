@@ -1,5 +1,13 @@
 console.log("lazy loaded parentview.state.js");
-define(['angular', 'parentview.module', 'parentview.controller'], function (angular, view1Module) {
+define(['app/parentview/parentview.controller'], function (parentviewController) {
     "use strict";
-    return {state: 'some state'};
+    console.log("parentviewController = ", parentviewController);
+    return {
+        name: 'parentview',
+        url: '/parentview',
+        controller: parentviewController,
+        templateUrl: "app/parentview/parentview.html",
+        onEnter: function(){console.log("Entering");},
+        onExit: function(){console.log("Exiting");}
+    };
 });

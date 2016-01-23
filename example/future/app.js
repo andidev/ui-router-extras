@@ -19,13 +19,8 @@ define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-ex
                 var requireCtrlStateFactory = function ($q, futureState) {
                     var d = $q.defer();
                     console.log("futureState = ", futureState);
-                    require([futureState.src, futureState.state], function (lazyController, state) {
-
-                        state.name = futureState.stateName;
-                        state.url = futureState.url;
-                        state.controller= lazyController;
+                    require([futureState.src], function (state) {
                         console.log("state = ", state);
-
                         d.resolve(state);
                     });
                     return d.promise;
