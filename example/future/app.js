@@ -5,9 +5,9 @@ define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-ex
 
         app.config(['$futureStateProvider',
             function ($futureStateProvider) {
-                // Register a resolve function that loads and registers the states defined in states.json file
+                // Register a resolve function that loads and registers the future states defined in futureState.json file
                 var loadAndRegisterFutureStates = function ($http) {
-                    return $http.get('states.json').then(function (resp) {
+                    return $http.get('futureStates.json').then(function (resp) {
                         angular.forEach(resp.data, function (fstate) {
                             $futureStateProvider.futureState(fstate);
                         });
@@ -15,17 +15,15 @@ define(['angular', 'angular-ui-router', 'ui-router-extras-future', 'ui-router-ex
                 };
                 $futureStateProvider.addResolve(loadAndRegisterFutureStates);
 
-                // Register a state factory that loads the final ui router state and requires the view module
-                var requireCtrlStateFactory = function ($q, futureState) {
+                // Register a state factory that loads the final ui router state with RequireJS
+                var requireStateFactory = function ($q, futureState) {
                     var d = $q.defer();
-                    console.log("futureState = ", futureState);
                     require([futureState.src], function (state) {
-                        console.log("state = ", state);
                         d.resolve(state);
                     });
                     return d.promise;
                 };
-                $futureStateProvider.stateFactory('requireCtrl', requireCtrlStateFactory);
+                $futureStateProvider.stateFactory('requireCtrl', requireStateFactory);
             }]);
 
         angular.bootstrap(document, ['app']);

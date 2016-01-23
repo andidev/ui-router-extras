@@ -1,7 +1,6 @@
 console.log("lazy loaded view3.state.js");
 define(['app/view3/view3.controller'], function (view3Controller) {
     "use strict";
-    console.log("view3Controller = ", view3Controller);
     return {
         name: 'view3',
         url: '/view3',
