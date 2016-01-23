@@ -1,11 +1,12 @@
 console.log("lazy loaded parentview.controller.js");
-define(['angular', 'app/parentview/parentview.module'], function (angular, view1Module) {
+define(['angular', 'app/parentview/parentview.module'], function (angular, parentviewModule) {
     "use strict";
-    //view1Module.controller('view1Controller', ['$scope', '$state', function ($scope, $state) {
-    //    $scope.somedata = ['foo', 'bar', 'baz'];
-    //}]);
-    return ['$scope', '$state', function ($scope, $state) {
+    parentviewModule.controller('parentviewController', parentviewController);
+    parentviewController.$inject = ['$scope', '$state'];
+    return parentviewController;
+
+    function parentviewController($scope, $state) {
         console.log("parentview.controller created");
         $scope.lazyLoadDescription = 'Lazy loaded parentview.module.js, parentview.state.js, parentview.controller.js and parentview.html';
-    }];
+    }
 });

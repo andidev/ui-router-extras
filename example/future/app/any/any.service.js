@@ -1,5 +1,5 @@
 console.log("lazy loaded view2.controller.js");
-define(['angular', 'app/view2/view2.module'], function (angular, view1Module) {
+define(['angular', 'app/any/view2.module'], function (angular, view1Module) {
     "use strict";
     //view1Module.controller('view1Controller', ['$scope', '$state', function ($scope, $state) {
     //    $scope.somedata = ['foo', 'bar', 'baz'];
